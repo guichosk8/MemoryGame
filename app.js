@@ -69,7 +69,12 @@ function createBoard(){
 createBoard();
 
 function checkForMatch(){
-    
+    var cards = document.querySelectorAll('img');
+    const optionOneId = cardsChosenId[0];
+    const optionTwoId = cardsChosenId[1];
+    if(cardsChosen[0]===cardsChosenId[1]){
+        alert('You found a match!');
+    }
 }
 
 function flipCard(){
