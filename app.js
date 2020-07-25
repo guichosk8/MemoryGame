@@ -53,8 +53,10 @@ document.addEventListener('DOMContentLoaded',() =>{
 
 //create board game
 const grid_div = document.querySelector('.grid');
+const resultDisplay = document.querySelector('#result');
 var cardsChosen = [];
 var cardsChosenId = [];
+var cardsWon = [];
 
 function createBoard(){
     for(let i=0; i < cardArray.length; i++){
@@ -74,6 +76,19 @@ function checkForMatch(){
     const optionTwoId = cardsChosenId[1];
     if(cardsChosen[0]===cardsChosenId[1]){
         alert('You found a match!');
+        cards[optionOneId].setAttribute('src','images/white.png');
+        cards[optionTwoId].setAttribute('src','images/white.png');
+        cardsWon.push(cards);
+    } else {
+        cards[optionOneId].setAttribute('src','images/blank.png');
+        cards[optionTwoId].setAttribute('src','images/blank.png');
+        alert('Sorry try again!');
+    }
+    cardsChosen = [];
+    cardsChosenId = [];
+    resultDisplay.textContent = cardsWon.length
+    if(cardsWon.length === cardArray.length/2){
+        resultDisplay.textContent = 'Congratulations! You found them all!';
     }
 }
 
@@ -86,6 +101,8 @@ function flipCard(){
         setTimeout(checkForMatch,500);
     }
 }
+
+
 
 
 })
