@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded',() =>{
 ]
 
 //create board game
+cardArray.sort(()=>0.5 - Math.random());
 const grid_div = document.querySelector('.grid');
 const resultDisplay = document.querySelector('#result');
 var cardsChosen = [];
