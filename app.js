@@ -65,7 +65,7 @@ function createBoard(){
         var card = document.createElement('img');
         card.setAttribute('src','images/blank.png');
         card.setAttribute('data-id',i);
-        // card.addEventListener('click',flipCard);
+        card.addEventListener('click',flipCard);
         grid_div.appendChild(card);
     }
 }
@@ -99,7 +99,7 @@ function checkForMatch(){
 //Flip card
 function flipCard(){
     var cardId = this.getAttribute('data-id');
-    cardsChosen.push(cardArray(cardId).name);
+    cardsChosen.push(cardArray[cardId].name);
     cardsChosenId.push(cardId);
     this.setAttribute('src',cardArray[cardId].img);
     if(cardsChosen.length === 2){
