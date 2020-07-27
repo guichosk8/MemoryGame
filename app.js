@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded',() =>{
     }
 ]
 
-//create board game
+//declaring variables
 cardArray.sort(()=>0.5 - Math.random());
 const grid_div = document.querySelector('.grid');
 const resultDisplay = document.querySelector('#result');
@@ -59,6 +59,7 @@ var cardsChosen = [];
 var cardsChosenId = [];
 var cardsWon = [];
 
+//creating gameboard
 function createBoard(){
     for(let i=0; i < cardArray.length; i++){
         var card = document.createElement('img');
@@ -71,6 +72,7 @@ function createBoard(){
 
 createBoard();
 
+//Checking for match
 function checkForMatch(){
     var cards = document.querySelectorAll('img');
     const optionOneId = cardsChosenId[0];
@@ -93,6 +95,8 @@ function checkForMatch(){
     }
 }
 
+
+//Flip card
 function flipCard(){
     var cardId = this.getAttribute('data-id');
     cardsChosen.push(cardArray(cardId).name);
@@ -102,8 +106,4 @@ function flipCard(){
         setTimeout(checkForMatch,500);
     }
 }
-
-
-
-
 })
