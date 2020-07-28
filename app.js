@@ -59,17 +59,6 @@ var cardsChosen = [];
 var cardsChosenId = [];
 var cardsWon = [];
 
-//Flip card
-function flipCard(){
-    var cardId = this.getAttribute('data-id');
-    cardsChosen.push(cardArray[cardId].name);
-    cardsChosenId.push(cardId);
-    this.setAttribute('src',cardArray[cardId].img);
-    if(cardsChosen.length === 2){
-        setTimeout(checkForMatch,500);
-    }
-}
-
 //Checking for match
 function checkForMatch(){
     var cards = document.querySelectorAll('img');
@@ -90,6 +79,17 @@ function checkForMatch(){
     resultDisplay.textContent = cardsWon.length
     if(cardsWon.length === cardArray.length/2){
         resultDisplay.textContent = 'Congratulations! You found them all!';
+    }
+}
+
+//Flip card
+function flipCard(){
+    var cardId = this.getAttribute('data-id');
+    cardsChosen.push(cardArray[cardId].name);
+    cardsChosenId.push(cardId);
+    this.setAttribute('src',cardArray[cardId].img);
+    if(cardsChosen.length === 2){
+        setTimeout(checkForMatch,500);
     }
 }
 
